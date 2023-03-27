@@ -11,7 +11,7 @@ struct PreReportView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
-                .onReceive(Timer.publish(every: 3, on: .main, in: .common).autoconnect()) { _ in
+                .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
                     currentImageIndex = (currentImageIndex + 1) % imageNames.count
                 }
             
