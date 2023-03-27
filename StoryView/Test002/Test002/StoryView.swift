@@ -27,7 +27,7 @@ struct StoryView: View {
         
         ProgressBar(value: $value).frame(height: 20)
         SlideView(count: $count,
-                          value: $value)
+                  value: $value)
         Spacer().frame(width: 40,height:120)
     }
 }
@@ -37,12 +37,12 @@ struct ProgressBar: View {
     @Binding var value: Float
     
     var body: some View {
-            ZStack(alignment: .leading) {
-                Rectangle().frame(width: 340 , height: 40)
-                    .opacity(0.2) //불투명도
-                    .foregroundColor(Color.gray)
-                Rectangle().frame(width: min(CGFloat(self.value)*340, 340), height: 40)
-                    .foregroundColor(Color.orange)
-            }.cornerRadius(45.0)
+        ZStack(alignment: .leading) {
+            Rectangle().frame(width: 340 , height: 40)
+                .opacity(0.2) //불투명도
+                .foregroundColor(Color.gray)
+            Rectangle().frame(width: min(CGFloat(self.value)*340, 340), height: 40)
+                .foregroundColor(Color.orange)
+        }.cornerRadius(45.0)
     }
 }

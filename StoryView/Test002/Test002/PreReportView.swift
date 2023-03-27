@@ -11,10 +11,10 @@ struct PreReportView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
-                .onAppear {
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-                        currentImageIndex = (currentImageIndex + 1) % imageNames.count}
+                .onReceive(Timer.publish(every: 3, on: .main, in: .common).autoconnect()) { _ in
+                    currentImageIndex = (currentImageIndex + 1) % imageNames.count
                 }
+            
             Spacer().frame(height:20)
             Text("처리중~")
             Spacer()
