@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct ContentSlide0View: View {
-    @State var circleTapped = false
+    @Binding var count:Int
+    @Binding var value:Float
     
     var body: some View {
         HStack {
@@ -27,16 +28,20 @@ struct ContentSlide0View: View {
                     Spacer().frame(width:20,height:60)
                     
                     Button(action: {
-                        print("hello world")
                         // What to perform
+                        count += 1
+                        value = Float(count)/8
                         print(1)
                     }) {
                         RoundedTextView(text : "어색한 건 싫어! 먼저 말을 건다.")
+                        
                     }
                     
                     Spacer().frame(width:20,height:20)
                     Button(action: {
                         // What to perform
+                        count += 1
+                        value = Float(count)/8
                         print(2)
                     }) {
                         RoundedTextView(text : "일단 팀원들을 스캔하며 팀 분위기가 좋기를 빈다.")
@@ -45,6 +50,8 @@ struct ContentSlide0View: View {
                     Spacer().frame(width:20,height:20)
                     Button(action: {
                         // What to perform
+                        count += 1
+                        value = Float(count)/8
                         print(3)
                     }) {
                         RoundedTextView(text : "시간이 지나면 자연스럽게 친해질테니 그냥 있는다.")
@@ -53,6 +60,8 @@ struct ContentSlide0View: View {
                     
                     Button(action: {
                         // What to perform
+                        count += 1
+                        value = Float(count)/8
                         print(4)
                     }) {
                         RoundedTextView(text : "새로운 사람, 말걸기 무서워! 가만히 있는다.")
@@ -63,15 +72,16 @@ struct ContentSlide0View: View {
     }
 }
 
-struct ContentSlide0View_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentSlide0View()
-    }
-}
+//struct ContentSlide0View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentSlide0View(progress: $progress)
+//    }
+//}
 
 struct RoundedTextView: View {
     let text : String
     var body: some View {
+        
         Text(text)
             .font(.system(size:13))
             .frame(width: 320,height:40, alignment: .center)
