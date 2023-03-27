@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentSlide0View: View {
+struct SlideView: View {
     @Binding var count:Int
     @Binding var value:Float
     
@@ -71,12 +71,6 @@ struct ContentSlide0View: View {
         }
     }
 }
-
-//struct ContentSlide0View_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentSlide0View(progress: $progress)
-//    }
-//}
 
 struct RoundedTextView: View {
     let text : String

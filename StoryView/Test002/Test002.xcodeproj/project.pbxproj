@@ -15,6 +15,7 @@
 		7341671229D146DF00781A97 /* Test002UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7341671129D146DF00781A97 /* Test002UITests.swift */; };
 		7341671429D146DF00781A97 /* Test002UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7341671329D146DF00781A97 /* Test002UITestsLaunchTests.swift */; };
 		7341672129D1471500781A97 /* ContentSlide0View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7341672029D1471500781A97 /* ContentSlide0View.swift */; };
+		738FD8AB29D1B21900FCF41D /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FD8AA29D1B21900FCF41D /* StoryView.swift */; };
 		73F771F329D181A5007E8F88 /* PreReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F771F229D181A5007E8F88 /* PreReportView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		7341671129D146DF00781A97 /* Test002UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test002UITests.swift; sourceTree = "<group>"; };
 		7341671329D146DF00781A97 /* Test002UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test002UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7341672029D1471500781A97 /* ContentSlide0View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSlide0View.swift; sourceTree = "<group>"; };
+		738FD8AA29D1B21900FCF41D /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		73F771F229D181A5007E8F88 /* PreReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				734166F629D146DE00781A97 /* Test002App.swift */,
 				734166F829D146DE00781A97 /* ContentView.swift */,
 				7341672029D1471500781A97 /* ContentSlide0View.swift */,
+				738FD8AA29D1B21900FCF41D /* StoryView.swift */,
 				73F771F229D181A5007E8F88 /* PreReportView.swift */,
 				734166FA29D146DF00781A97 /* Assets.xcassets */,
 				734166FC29D146DF00781A97 /* Preview Content */,
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738FD8AB29D1B21900FCF41D /* StoryView.swift in Sources */,
 				73F771F329D181A5007E8F88 /* PreReportView.swift in Sources */,
 				7341672129D1471500781A97 /* ContentSlide0View.swift in Sources */,
 				734166F929D146DE00781A97 /* ContentView.swift in Sources */,
