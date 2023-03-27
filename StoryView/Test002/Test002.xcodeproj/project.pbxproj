@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		734166F729D146DE00781A97 /* Test002App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734166F629D146DE00781A97 /* Test002App.swift */; };
+		734166F729D146DE00781A97 /* SIVI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734166F629D146DE00781A97 /* SIVI.swift */; };
 		734166F929D146DE00781A97 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734166F829D146DE00781A97 /* ContentView.swift */; };
 		734166FB29D146DF00781A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 734166FA29D146DF00781A97 /* Assets.xcassets */; };
 		7341670829D146DF00781A97 /* Test002Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7341670729D146DF00781A97 /* Test002Tests.swift */; };
@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		734166F329D146DE00781A97 /* Test002.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test002.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		734166F629D146DE00781A97 /* Test002App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test002App.swift; sourceTree = "<group>"; };
+		734166F629D146DE00781A97 /* SIVI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIVI.swift; sourceTree = "<group>"; };
 		734166F829D146DE00781A97 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		734166FA29D146DF00781A97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7341670329D146DF00781A97 /* Test002Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test002Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +98,7 @@
 		734166F529D146DE00781A97 /* Test002 */ = {
 			isa = PBXGroup;
 			children = (
-				734166F629D146DE00781A97 /* Test002App.swift */,
+				734166F629D146DE00781A97 /* SIVI.swift */,
 				734166F829D146DE00781A97 /* ContentView.swift */,
 				7341672029D1471500781A97 /* ContentSlide0View.swift */,
 				738FD8AA29D1B21900FCF41D /* StoryView.swift */,
@@ -258,7 +258,7 @@
 				73F771F329D181A5007E8F88 /* PreReportView.swift in Sources */,
 				7341672129D1471500781A97 /* ContentSlide0View.swift in Sources */,
 				734166F929D146DE00781A97 /* ContentView.swift in Sources */,
-				734166F729D146DE00781A97 /* Test002App.swift in Sources */,
+				734166F729D146DE00781A97 /* SIVI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
