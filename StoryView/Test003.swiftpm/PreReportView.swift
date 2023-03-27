@@ -1,6 +1,10 @@
 import SwiftUI
 
 struct PreReportView: View {
+    @Binding var count:Int
+    @Binding var value:Float
+    
+    
     let imageNames = ["001","002","003","004","005","006"]
     @State private var currentImageIndex = 0
     
@@ -18,13 +22,19 @@ struct PreReportView: View {
             Spacer().frame(height:20)
             Text("처리중~")
             Spacer()
+            Button("메인으로 돌아가기..."){
+                count = 1
+                value = 0.0
+            }
         }
     }
 }
 
 // 컨텐트뷰_프리뷰
 struct PreReportView_Previews: PreviewProvider {
+    @State static var count = 1
+    @State static var value:Float = 0.0
     static var previews: some View {
-        PreReportView()
+        PreReportView(count: $count,value:$value)
     }
 }

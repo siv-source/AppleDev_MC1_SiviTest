@@ -10,7 +10,7 @@ struct SlideView: View {
             VStack{
                 HStack(){
                     Spacer().frame(width:20)
-                    Text("Q1")
+                    Text("Q"+String(describing:count))
                         .frame(width: 300,height:60, alignment: .leading)
                         .font(.system(size: 30).bold())
                     Spacer().frame(width:20)

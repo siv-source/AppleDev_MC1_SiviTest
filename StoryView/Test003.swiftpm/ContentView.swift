@@ -10,7 +10,7 @@ struct ContentView: View {
         // 버티컬리하게 쪼갠다.
         VStack {
             if currentPage == 8 {
-                PreReportView()
+                PreReportView(count: $currentPage, value: $progressValue)
             } else {
                 StoryView(count: $currentPage, value: $progressValue)
             }
