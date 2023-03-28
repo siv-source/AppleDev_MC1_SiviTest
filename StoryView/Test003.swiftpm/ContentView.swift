@@ -2,7 +2,7 @@ import SwiftUI
 
 // 컴포넌트를 많이 써본다.
 struct ContentView: View {
-    @State var currentPage = 1
+    @State var currentPage = 0
     @State var progressValue: Float = 0.0
     
     var body: some View {
@@ -11,7 +11,9 @@ struct ContentView: View {
         VStack {
             if currentPage >= 8 {
                 PreReportView(count: $currentPage, value: $progressValue)
-            } else {
+            } else if currentPage == 0{
+                MainView(count: $currentPage)
+            } else  {
                 StoryView(count: $currentPage, value: $progressValue)
             }
         }.padding()

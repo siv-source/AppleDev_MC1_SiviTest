@@ -12,6 +12,7 @@ struct StoryView: View {
                 //Text(String($count)+" / 8") // build error
                 Text(String(describing:count)+" / 8")
                     .font(.system(size: 30))
+                    .foregroundColor(.gray)
                     .bold()
             }
             Spacer()
@@ -55,7 +56,7 @@ struct ProgressBar: View {
                 .opacity(0.2) //불투명도
                 .foregroundColor(Color.gray)
             Rectangle().frame(width: min(CGFloat(self.value)*340, 340), height: 40)
-                .foregroundColor(Color.orange)
+                .foregroundColor(Color(0x24E7B0))
         }.cornerRadius(45.0)
     }
 }

@@ -25,7 +25,7 @@ struct PreReportView: View {
             Button(
                 action: {
                     print("hello!")
-                    count = 1
+                    count = 0
                     value = 0.0
                 }){Text("메인으로 돌아가기...")
                 }
