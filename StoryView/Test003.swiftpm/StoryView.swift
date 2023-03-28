@@ -14,7 +14,6 @@ struct StoryView: View {
                 Text(String(describing:count)+" / 8")
                     .font(.system(size: 30))
                     .bold()
-                Text(String(describing:scores))
             }
             Spacer()
         }

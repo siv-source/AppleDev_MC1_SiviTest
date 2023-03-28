@@ -25,11 +25,10 @@ struct PreReportView: View {
             Spacer()
             Button(
                 action: {
-                    print("hello!")
+                    print(scores)
                     count = 1
                     value = 0.0
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
-                    print(scores)
                 }){Text("메인으로 돌아가기...")
                 }
         }
