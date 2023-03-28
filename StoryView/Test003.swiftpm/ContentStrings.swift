@@ -48,14 +48,6 @@ extension ContentString{
                         Answer(state: "왕~~밥이다!!!! 일단 밥에 집중한다", score: [0,0,0,0,1,0])
                     ]),
         //question 6
-      ContentString(question:"MC1 첫날, 팀원들과 처음으로 모였다. 분위기는 정적... 당신은 어떻게 행동하겠는가?",
-                    answers: [
-                        Answer(state: "어색한 건 싫어! 먼저 말을 건다.", score: [1,0,0,0,0,0]),
-                        Answer(state: "일단 팀원들을 스캔하며 팀 분위기가 좋기를 빈다.", score: [0,1,0,0,0,0]),
-                        Answer(state: "시간이 지나면 자연스럽게 친해질테니 그냥 있는다.", score: [0,0,1,0,0,0]),
-                        Answer(state: "새로운 사람, 말걸기 무서워! 가만히 있는다.", score: [0,0,0,0,1,0])
-                    ]),
-        //question 7
       ContentString(question:"우리의 서비스 \"아침의 사과\"를 구현하기로 한다 이 때, 당신은 어떻게 할 것인가?",
                     answers: [
                         Answer(state: "좋아하는 부분은 내가 할게! 이건 내가 하겠다고 말한다.", score: [1,0,0,0,0,0]),
@@ -63,7 +55,7 @@ extension ContentString{
                         Answer(state: "팀원의 부담감을 줄여주기 위해 최선을 다한다.", score: [0,0,1,0,0,0]),
                         Answer(state: "우리팀 말만 해~ 팀원들의 의견을 최대한 반영한다.", score: [0,0,0,0,1,0])
                     ]),
-        //question 8
+        //question 7
         ContentString(question:"첼린지가 끝났다~! 당신이 생각하는 첫 MC1의 가치는?",
                       answers: [
                         Answer(state: "앞으로 아카데미에서 열심히 활동할 수 있는 용기와 자극제!", score: [1,0,0,0,0,0]),
