@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SlideView: View {
+struct Slide6View: View {
     @Binding var count:Int
     @Binding var value:Float
     
@@ -18,10 +18,11 @@ struct SlideView: View {
                 Spacer().frame(width:20,height:10)
                 HStack(){
                     Spacer().frame(width:20)
-                    Text("MC1 첫날, 팀원들과 처음으로 모였다. 분위기는 정적... 당신은 어떻게 행동하겠는가?")
-                        .font(.system(size: 25))
+                    Text("첫번째 사이클 성공적인 발표 이후, 우리가 만든 아침의 사과를 시연하기 위해 당신은?")
+                        .font(.system(size:400))
+                        .minimumScaleFactor(0.01)
                     Spacer().frame(width:20)
-                }
+                }.frame(height:120)
                 // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
                 Group{
                     Spacer().frame(width:20,height:60)
@@ -32,7 +33,7 @@ struct SlideView: View {
                         value = Float(count)/8
                         print(1)
                     }) {
-                        RoundedTextView(text : "어색한 건 싫어! 먼저 말을 건다.")
+                        RoundedTextView(text : "어떻게 주의를 끌어야할지 몰라 갈팡지팡하다가 팀원들에게 주의를 끌어달라고 부탁한다 ")
                         
                     }
                     
@@ -43,7 +44,7 @@ struct SlideView: View {
                         value = Float(count)/8
                         print(2)
                     }) {
-                        RoundedTextView(text : "일단 팀원들을 스캔하며 팀 분위기가 좋기를 빈다.")
+                        RoundedTextView(text : "조용히 시연화면을 보고 만족스러워한다")
                     }
                     
                     Spacer().frame(width:20,height:20)
@@ -53,7 +54,7 @@ struct SlideView: View {
                         value = Float(count)/8
                         print(3)
                     }) {
-                        RoundedTextView(text : "시간이 지나면 자연스럽게 친해질테니 그냥 있는다.")
+                        RoundedTextView(text : "아이 부끄러! 많은 주의를 끌지 못하고 시연을 했지만 그럼에도 만족해한다.")
                     }
                     Spacer().frame(width:20,height:20)
                     
@@ -63,27 +64,18 @@ struct SlideView: View {
                         value = Float(count)/8
                         print(4)
                     }) {
-                        RoundedTextView(text : "새로운 사람, 말걸기 무서워! 가만히 있는다.")
+                        RoundedTextView(text : "화면을 보고 다른 러너들이 참여할 수 있도록 주의를 끈다.")
                     }
                 }
             }
         }
     }
 }
-
-struct RoundedTextView: View {
-    let text : String
-    var body: some View {
-        
-        Text(text)
-            .font(.system(size:13))
-            .frame(width: 320,height:40, alignment: .center)
-            .foregroundColor(.black)
-            .background(Color.white)
-            .cornerRadius(6)
-            .overlay(
-                RoundedRectangle(cornerRadius: 6).stroke(Color.gray, lineWidth: 0)
-            )
-            .shadow(radius: 2)
+// 컨텐트뷰_프리뷰
+struct Slide6View_Previews: PreviewProvider {
+    @State static var count:Int  = 1
+    @State static var value:Float = 0.24
+    static var previews: some View {
+        Slide6View(count: $count,value: $value)
     }
 }

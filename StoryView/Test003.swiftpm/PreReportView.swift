@@ -22,10 +22,13 @@ struct PreReportView: View {
             Spacer().frame(height:20)
             Text("처리중~")
             Spacer()
-            Button("메인으로 돌아가기..."){
-                count = 1
-                value = 0.0
-            }
+            Button(
+                action: {
+                    print("hello!")
+                    count = 1
+                    value = 0.0
+                }){Text("메인으로 돌아가기...")
+                }
         }
     }
 }
