@@ -29,6 +29,7 @@ struct PreReportView: View {
                     count = 1
                     value = 0.0
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                    print(scores)
                 }){Text("메인으로 돌아가기...")
                 }
         }
@@ -39,7 +40,8 @@ struct PreReportView: View {
 struct PreReportView_Previews: PreviewProvider {
     @State static var count = 1
     @State static var value:Float = 0.0
+    @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        PreReportView(count: $count,value:$value)
+        PreReportView(count: $count,value:$value,scores: $scores)
     }
 }

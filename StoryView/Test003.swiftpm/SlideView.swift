@@ -32,11 +32,12 @@ struct SlideView: View {
                 }.frame(height:120)
                 
                 Spacer().frame(width:20,height:60)  
-        
-                // 선택지 구문
+            
                 Group{ // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
-                    ForEach(0..<ContentString.storyData[count-1].answers.count){ index in
-                        SlideAnswerView(scores: $scores, count: $count, value: $value,answerNum: index)}
+                    //ForEach는 Hashable 하게 써야 동적인 (표시해야할 갯수가 세 개에서 네 개가 된다든지) 에서도 사용할 수 있다.
+                    ForEach(content[count-1].answers, id:\.self){ answer in 
+                        SlideAnswerView(scores: $scores, count: $count, value: $value, answer: answer)
+                    }
                 }
             }
         }
@@ -64,16 +65,16 @@ struct SlideAnswerView : View {
     @Binding var scores:[Double]
     @Binding var count : Int
     @Binding var value : Float
-    var answerNum : Int
+    var answer : Answer
     var body: some View {
         VStack{                        
             Button(action: {
                 // What to perform
                 count += 1
                 value = Float(count)/8
-                scores = zip(scores, ContentString.storyData[count-1].answers[answerNum].score).map(+) //더하기
+                scores = zip(scores, answer.score).map(+) //더하기
             }) {
-                RoundedTextView(text:ContentString.storyData[count-1].answers[answerNum].state)
+                RoundedTextView(text:answer.state)
             }
             Spacer().frame(width:20,height:20)
         }
