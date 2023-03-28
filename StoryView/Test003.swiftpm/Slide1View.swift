@@ -3,7 +3,8 @@ import SwiftUI
 struct Slide1View: View {
     @Binding var count:Int
     @Binding var value:Float
-    var content = ContentString.storyData
+    @Binding var scores:[Double]
+    let content = ContentString.storyData
     var indexnum = 0
     
     var body: some View {
@@ -22,59 +23,15 @@ struct Slide1View: View {
                 Spacer().frame(width:20,height:10)
                 HStack(){
                     Spacer().frame(width:20)
-                    Text(content[0].question)
+                    Text(ContentString.storyData[0].question)
                         .font(.system(size:400))
                         .minimumScaleFactor(0.01)
                     Spacer().frame(width:20)
                 }.frame(height:120)
-                Spacer().frame(width:20,height:60)
-                // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
-                Group{
-                    VStack{                        
-                        Button(action: {
-                            // What to perform
-                            count += 1
-                            value = Float(count)/8
-                            print(1)
-                            print(type(of:content[0].question))
-                            print(type(of:content))
-                            for i in [1,2,3,4]{
-                                print(i)
-                            }
-                        }) {
-                            RoundedTextView(text:"즐")
-                        }
-                    }
-                    
-                    Spacer().frame(width:20,height:20)
-                    Button(action: {
-                        // What to perform
-                        count += 1
-                        value = Float(count)/8
-                        print(2)
-                    }) {
-                        //                        RoundedTextView(text : content[0].answers[1])
-                    }
-                    
-                    Spacer().frame(width:20,height:20)
-                    Button(action: {
-                        // What to perform
-                        count += 1
-                        value = Float(count)/8
-                        print(3)
-                    }) {
-                        //                        RoundedTextView(text : content[0].answers[2])
-                    }
-                    Spacer().frame(width:20,height:20)
-                    
-                    Button(action: {
-                        // What to perform
-                        count += 1
-                        value = Float(count)/8
-                        print(4)
-                    }) {
-                        //                        RoundedTextView(text : content[0].answers[3])
-                    }
+                Spacer().frame(width:20,height:60)  
+                Group{ // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
+                    ForEach(0..<ContentString.storyData[0].answers.count){ index in
+                        SlideAnswerView(scores: $scores, count: $count, value: $value,answerNum: index)}
                 }
             }
         }
@@ -99,23 +56,21 @@ struct RoundedTextView: View {
 }
 
 struct SlideAnswerView : View {
-    @Binding var count: Int
-    @Binding var value: Float
-    var content: [ContentString]
-    var answerIndex:Int
+    @Binding var scores:[Double]
+    @Binding var count : Int
+    @Binding var value : Float
+    var answerNum : Int
     var body: some View {
-        VStack{
-            Spacer().frame(width:20,height:60)
-            
+        VStack{                        
             Button(action: {
                 // What to perform
                 count += 1
                 value = Float(count)/8
-                print(1)
-                print(type(of:content[0].question))
+                scores = zip(scores, ContentString.storyData[0].answers[answerNum].score).map(+) //더하기
             }) {
-                RoundedTextView(text: "즐")
+                RoundedTextView(text:ContentString.storyData[0].answers[answerNum].state)
             }
+            Spacer().frame(width:20,height:20)
         }
     }
 }
@@ -123,7 +78,8 @@ struct SlideAnswerView : View {
 struct Slide1View_Previews: PreviewProvider {
     @State static var count:Int  = 1
     @State static var value:Float = 0.24
+    @State static var scores:[Double] = [0.2,0.3,0.4,0.5,0.6,0.7]
     static var previews: some View {
-        Slide1View(count: $count,value: $value)
+        Slide1View(count: $count,value: $value,scores: $scores)
     }
 }

@@ -3,6 +3,7 @@ import SwiftUI
 struct StoryView: View {
     @Binding var count:Int
     @Binding var value:Float
+    @Binding var scores:[Double]
     
     var body: some View {
         Spacer().frame(width: 40,height: 30)
@@ -13,6 +14,7 @@ struct StoryView: View {
                 Text(String(describing:count)+" / 8")
                     .font(.system(size: 30))
                     .bold()
+                Text(String(describing:scores))
             }
             Spacer()
         }
@@ -22,7 +24,7 @@ struct StoryView: View {
         Spacer().frame(height:30)
         switch count{
         case 1:
-            Slide1View(count: $count,value: $value)
+            Slide1View(count: $count,value: $value, scores: $scores)
         case 2:
             Slide2View(count: $count,value: $value)
         case 3:
@@ -38,7 +40,7 @@ struct StoryView: View {
         case 8:
             Slide8View(count: $count,value: $value)
         default:
-            Slide1View(count: $count,value: $value)
+            Slide1View(count: $count,value: $value, scores: $scores)
         }
 
         Spacer()
