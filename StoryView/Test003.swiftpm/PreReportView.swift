@@ -3,6 +3,7 @@ import SwiftUI
 struct PreReportView: View {
     @Binding var count:Int
     @Binding var value:Float
+    @Binding var scores:[Double]
     
     
     let imageNames = ["001","002","003","004","005","006"]
@@ -27,6 +28,7 @@ struct PreReportView: View {
                     print("hello!")
                     count = 1
                     value = 0.0
+                    scores = [0.0,0.0,0.0,0.0,0.0,0.0]
                 }){Text("메인으로 돌아가기...")
                 }
         }

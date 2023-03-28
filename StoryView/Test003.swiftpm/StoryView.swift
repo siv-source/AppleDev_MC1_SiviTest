@@ -22,27 +22,7 @@ struct StoryView: View {
         
         ProgressBar(value: $value).frame(height: 20)
         Spacer().frame(height:30)
-        switch count{
-        case 1:
-            Slide1View(count: $count,value: $value, scores: $scores)
-        case 2:
-            Slide2View(count: $count,value: $value)
-        case 3:
-            Slide3View(count: $count,value: $value)
-        case 4:
-            Slide4View(count: $count,value: $value)
-        case 5:
-            Slide5View(count: $count,value: $value)
-        case 6:
-            Slide6View(count: $count,value: $value)
-        case 7:
-            Slide7View(count: $count,value: $value)
-        case 8:
-            Slide8View(count: $count,value: $value)
-        default:
-            Slide1View(count: $count,value: $value, scores: $scores)
-        }
-
+        SlideView(count: $count,value: $value, scores: $scores)
         Spacer()
     }
 }
