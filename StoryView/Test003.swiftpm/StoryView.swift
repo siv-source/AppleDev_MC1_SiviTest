@@ -2,54 +2,34 @@ import SwiftUI
 
 struct StoryView: View {
     @Binding var count:Int
-    @Binding var value:Float
+    @Binding var scores:[Double]
     
     var body: some View {
+        let pageNum : Int = ContentString.storyData.count
+        let value : Double = Double(count)/Double(ContentString.storyData.count)
         Spacer().frame(width: 40,height: 30)
         HStack{
             Spacer().frame(width: 20)
             VStack{
                 //Text(String($count)+" / 8") // build error
-                Text(String(describing:count)+" / 8")
-                    .font(.system(size: 20))
-                    .foregroundColor(.gray)
+                Text(String(describing:count) + " / " + String(describing:pageNum))
+                    .font(.system(size: 30))
                     .bold()
             }
             Spacer()
         }
         Spacer().frame(height:20)
         
-        ProgressBar(value: $value).frame(height: 20)
+        ProgressBar(value: value).frame(height: 20)
         Spacer().frame(height:30)
-        switch count{
-        case 1:
-            Slide1View(count: $count,value: $value)
-        case 2:
-            Slide2View(count: $count,value: $value)
-        case 3:
-            Slide3View(count: $count,value: $value)
-        case 4:
-            Slide4View(count: $count,value: $value)
-        case 5:
-            Slide5View(count: $count,value: $value)
-        case 6:
-            Slide6View(count: $count,value: $value)
-        case 7:
-            Slide7View(count: $count,value: $value)
-        case 8:
-            Slide8View(count: $count,value: $value)
-        default:
-            Slide1View(count: $count,value: $value)
-        }
-
+        SlideView(count: $count, scores: $scores)
         Spacer()
     }
 }
 
 // 프로그레스 바
 struct ProgressBar: View {
-    @Binding var value: Float
-    
+    var value: Double
     var body: some View {
         ZStack(alignment: .leading) {
             Rectangle().frame(width: 340 , height: 30)
