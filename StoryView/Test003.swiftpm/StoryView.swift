@@ -24,7 +24,7 @@ struct StoryView: View {
         
         ProgressBar(value: value).frame(height: 20)
         Spacer().frame(height:30)
-        SlideView(count: $questionNum, scores: $scores)
+        SlideView(pageStatus: $pageStatus, scores: $scores)
         Spacer()
     }
 }
