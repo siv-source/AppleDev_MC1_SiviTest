@@ -6,7 +6,7 @@ struct StoryView: View {
     
     var body: some View {
         let pageNum : Int = ContentString.storyData.count
-        let value : Double = Double(count)/7
+        let value : Double = Double(count)/Double(ContentString.storyData.count)
         Spacer().frame(width: 40,height: 30)
         HStack{
             Spacer().frame(width: 20)
