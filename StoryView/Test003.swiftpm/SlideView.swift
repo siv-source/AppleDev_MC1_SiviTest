@@ -5,8 +5,7 @@ struct SlideView: View {
     @Binding var scores:[Double]
     
     var body: some View {
-        let content = ContentString.storyData[0]
-        // (count-1)%ContentString.storyData.count
+        let content = ContentString.storyData[count]
         HStack {
             Spacer().frame(width:20).background(Color.blue)
             VStack{
@@ -87,6 +86,7 @@ struct SlideAnswerView : View {
             Button(action: {
                 // What to perform
                 count += 1
+                // call next slide
                 scores = zip(scores, answer.score).map(+) //더하기
             }) {
                 RoundedTextView(text:answer.state)
@@ -95,6 +95,7 @@ struct SlideAnswerView : View {
         }.buttonStyle(MyButtonStyle())
     }
 }
+
 // 컨텐트뷰_프리뷰
 struct SlideView_Previews: PreviewProvider {
     @State static var count:Int  = 1
