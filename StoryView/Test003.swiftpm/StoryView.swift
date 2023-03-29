@@ -32,11 +32,11 @@ struct ProgressBar: View {
     var value: Double
     var body: some View {
         ZStack(alignment: .leading) {
-            Rectangle().frame(width: 340 , height: 40)
+            Rectangle().frame(width: 340 , height: 30)
                 .opacity(0.2) //불투명도
                 .foregroundColor(Color.gray)
-            Rectangle().frame(width: min(CGFloat(value)*340, 340), height: 40)
-                .foregroundColor(Color.orange)
+            Rectangle().frame(width: min(CGFloat(self.value)*340, 340), height: 30)
+                .foregroundColor(Color(0x24E7B0))
         }.cornerRadius(45.0)
     }
 }
