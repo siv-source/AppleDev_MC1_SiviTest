@@ -25,9 +25,11 @@ struct PreReportView: View {
             Button(
                 action: {
                     print(scores)
-                    count = 1
+                    count = 0
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
-                }){Text("메인으로 돌아가기...")
+                }){Text("메인으로 돌아가기")
+                        .underline()
+                        .foregroundColor(Color(0x24E7B0))
                 }
         }
     }

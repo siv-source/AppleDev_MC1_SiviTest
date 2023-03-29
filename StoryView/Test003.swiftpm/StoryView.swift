@@ -13,7 +13,8 @@ struct StoryView: View {
             VStack{
                 //Text(String($count)+" / 8") // build error
                 Text(String(describing:count) + " / " + String(describing:pageNum))
-                    .font(.system(size: 30))
+                    .font(.system(size: 20))
+                    .foregroundColor(Color.gray)
                     .bold()
             }
             Spacer()
