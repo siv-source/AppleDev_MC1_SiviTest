@@ -29,31 +29,43 @@ struct LoadingView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image(imageNames[currentImageIndex])
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-                .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
-                    currentImageIndex = (currentImageIndex + 1) % imageNames.count
-                }
-            
-            Spacer().frame(height:40)
+            ZStack{
+                Image(imageNames[currentImageIndex])
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                    .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
+                        currentImageIndex = (currentImageIndex + 1) % imageNames.count
+                    }
+                ZStack {
+                    LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
+                }.frame(width: 300, height: 300)
+                    .onAppear() {
+                        Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
+                            (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
+                        }
+                    }
+            }
+            Spacer().frame(height:80)
             
             Text("당신의 러너 캐릭터를")
                 .fontWeight(.bold)
+                .font(.system(size: 30))
+            Spacer().frame(height: 10)
             Text("분석하고 있어요")
                 .fontWeight(.bold)
+                .font(.system(size: 30))
                 
             Spacer().frame(height: 30)
             
-            ZStack {
-                LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
-            }.frame(width: 50, height: 50)
-                .onAppear() {
-                    Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
-                        (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
-                    }
-                }
+//            ZStack {
+//                LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
+//            }.frame(width: 50, height: 50)
+//                .onAppear() {
+//                    Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
+//                        (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
+//                    }
+//                }
             Spacer()
             
             Button(
@@ -87,7 +99,7 @@ struct LoadingViewCircle: View {
     var body: some View {
         Circle()
             .trim(from: start, to: end)
-            .stroke(style: StrokeStyle(lineWidth: 15, lineCap: .round))
+            .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round))
             .fill(color)
             .rotationEffect(rotation)
     }
