@@ -15,12 +15,17 @@ struct PreReportView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
-                .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+                .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
                     currentImageIndex = (currentImageIndex + 1) % imageNames.count
                 }
             
-            Spacer().frame(height:20)
-            Text("당신의 러너 캐릭터를 분석하고 있어요")
+            Spacer().frame(height:40)
+            
+            Text("당신의 러너 캐릭터를")
+                .fontWeight(.bold)
+            Text("분석하고 있어요")
+                .fontWeight(.bold)
+                
             Spacer()
             Button(
                 action: {

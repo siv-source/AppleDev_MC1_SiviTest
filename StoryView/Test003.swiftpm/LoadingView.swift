@@ -9,6 +9,13 @@ import SwiftUI
 
 struct LoadingView: View {
     
+    @Binding var count:Int
+    @Binding var scores:[Double]
+    
+    
+    let imageNames = ["001","002","003","004","005","006"]
+    @State private var currentImageIndex = 0
+    
     let rotationTime: Double = 0.5
     let fullRotation: Angle = .degrees(360)
     static let initialDegree: Angle = .degrees(270)
@@ -17,17 +24,48 @@ struct LoadingView: View {
     @State var spinnerEndS1: CGFloat = 0.03
     @State var rotationDegreeS1 = initialDegree
     
-    let animationTime: Double = 1.9
+    let animationTime: Double = 1.0
 
     var body: some View {
-        ZStack {
-            LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
-        }.frame(width: 60, height: 60)
-            .onAppear() {
-                Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
-                    (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
+        VStack {
+            Spacer()
+            Image(imageNames[currentImageIndex])
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
+                    currentImageIndex = (currentImageIndex + 1) % imageNames.count
                 }
-            }
+            
+            Spacer().frame(height:40)
+            
+            Text("당신의 러너 캐릭터를")
+                .fontWeight(.bold)
+            Text("분석하고 있어요")
+                .fontWeight(.bold)
+                
+            Spacer().frame(height: 30)
+            
+            ZStack {
+                LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
+            }.frame(width: 50, height: 50)
+                .onAppear() {
+                    Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
+                        (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
+                    }
+                }
+            Spacer()
+            
+            Button(
+                action: {
+                    print(scores)
+                    count = 0
+                    scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                }){Text("메인으로 돌아가기")
+                        .underline()
+                        .foregroundColor(Color(0x24E7B0))
+                }
+        }
     }
     
     func animateSpinner(with timeInterval: Double, completion: @escaping (() -> Void)) {
@@ -56,7 +94,9 @@ struct LoadingViewCircle: View {
 }
 
 struct LoadingView_Previews: PreviewProvider {
+    @State static var count = 1
+    @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        LoadingView()
+        LoadingView(count: $count,scores: $scores)
     }
 }
