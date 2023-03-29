@@ -3,17 +3,17 @@ import SwiftUI
 struct StoryView: View {
     @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
-    @State var questionNum : Int = 0
+    @State var count : Int = 0
     
     var body: some View {
         let totalPageNum : Int = ContentString.storyData.count
-        let value : Double = Double(questionNum)/Double(ContentString.storyData.count)
+        let value : Double = Double(count)/Double(ContentString.storyData.count)
         Spacer().frame(width: 40,height: 30)
         HStack{
             Spacer().frame(width: 20)
             VStack{
                 //Text(String($count)+" / 8") // build error
-                Text(String(describing:questionNum) + " / " + String(describing:totalPageNum))
+                Text(String(describing:count+1) + " / " + String(describing:totalPageNum))
                     .font(.system(size: 20))
                     .foregroundColor(Color.gray)
                     .bold()
@@ -24,7 +24,7 @@ struct StoryView: View {
         
         ProgressBar(value: value).frame(height: 20)
         Spacer().frame(height:30)
-        SlideView(pageStatus: $pageStatus, scores: $scores)
+        SlideView(pageStatus: $pageStatus, scores: $scores, count: $count)
         Spacer()
     }
 }

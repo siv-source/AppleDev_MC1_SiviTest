@@ -3,7 +3,7 @@ import SwiftUI
 struct SlideView: View {
     @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
-    @State var count : Int = 0
+    @Binding var count:Int
     
     var body: some View {
         let content = ContentString.storyData[count%ContentString.storyData.count]
@@ -13,7 +13,7 @@ struct SlideView: View {
                 // DAY 구문
                 HStack(){
                     Spacer().frame(width:20)
-                    Text("Day "+String(describing:count))
+                    Text("Day "+String(describing:(count+1)))
                         .frame(width: 340,height: 30, alignment: .leading)
                         .font(.system(size: 25).bold())
                     
@@ -52,7 +52,6 @@ struct SlideView: View {
                     Text("메인으로 돌아가기")
                         .underline()
                         .foregroundColor(Color(0x24E7B0))
-                    
                 }
             }
         }
@@ -86,11 +85,10 @@ struct SlideAnswerView : View {
     var body: some View {
         VStack{
             Button(action: {
-                if count >= ContentString.storyData.count{
-                    pageStatus = .PREREPORT
-                }
-                else {
+                if count < ContentString.storyData.count-1{
                     count += 1
+                } else {
+                    pageStatus = .PREREPORT
                 }
                 scores = zip(scores, answer.score).map(+) //더하기
             }) {
@@ -105,8 +103,9 @@ struct SlideAnswerView : View {
 struct SlideView_Previews: PreviewProvider {
     @State static var pageStatus = PageStatus.STORY
     @State static var scores:[Double] = [0.2,0.3,0.4,0.5,0.6,0.7]
+    @State static var count:Int = 2
     static var previews: some View {
-        SlideView(pageStatus: $pageStatus,scores: $scores)
+        SlideView(pageStatus: $pageStatus,scores: $scores, count: $count)
     }
 }
 
