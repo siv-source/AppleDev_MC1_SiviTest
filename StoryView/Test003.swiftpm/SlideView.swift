@@ -5,7 +5,7 @@ struct SlideView: View {
     @Binding var scores:[Double]
     
     var body: some View {
-        let content = ContentString.storyData[0]
+        let content = ContentString.storyData[(count-1)%ContentString.storyData.count]
         // (count-1)%ContentString.storyData.count
         HStack {
             Spacer().frame(width:20).background(Color.blue)

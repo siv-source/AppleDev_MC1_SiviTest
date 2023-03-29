@@ -20,7 +20,7 @@ struct PreReportView: View {
                 }
             
             Spacer().frame(height:20)
-            Text("처리중~")
+            Text("당신의 러너 캐릭터를 분석하고 있어요")
             Spacer()
             Button(
                 action: {
