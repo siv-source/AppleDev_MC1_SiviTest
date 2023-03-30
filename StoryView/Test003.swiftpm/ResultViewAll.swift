@@ -17,10 +17,10 @@ struct ResultViewAll: View {
                         .frame(width: 100, height: 100)
                         .padding(.top, 25)
                     
-                    Text("시비없는 12팀을 통해 알아보는")
+                    Text("시비없는 12팀으로 알아보는")
                         .foregroundColor(Color.gray)
                     
-                    Text("나는 어떤 유형의 러너일까?")
+                    Text("나는 어떤 러너일까!?")
                         .foregroundColor(Color.gray)
                         .font(.system(size: 30, weight: .bold))
                         .padding(.top, 0)
