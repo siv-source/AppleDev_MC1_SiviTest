@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PreReportView: View {
-    @Binding var count:Int
+    @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
     
     
@@ -30,7 +30,7 @@ struct PreReportView: View {
             Button(
                 action: {
                     print(scores)
-                    count = 0
+                    pageStatus = .MAIN
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
                 }){Text("메인으로 돌아가기")
                         .underline()
@@ -42,9 +42,9 @@ struct PreReportView: View {
 
 // 컨텐트뷰_프리뷰
 struct PreReportView_Previews: PreviewProvider {
-    @State static var count = 1
+    @State static var pageStatus = PageStatus.PREREPORT
     @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        PreReportView(count: $count,scores: $scores)
+        PreReportView(pageStatus: $pageStatus, scores: $scores)
     }
 }
