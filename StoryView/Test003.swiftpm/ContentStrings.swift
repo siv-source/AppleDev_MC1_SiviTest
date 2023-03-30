@@ -16,7 +16,7 @@ extension ContentString{
         ContentString(question:"당신은 어떻게 행동하겠는가?",
                       day : 1,
                     answers: [
-                        Answer(state: "어색한 건 싫어! 말을 먼저 건다.", score: [0.0,0.0,1.0,0.0,1.0,0.0]),
+                        Answer(state: "어색한 건 싫어! 먼저 말을 건다.", score: [0.0,0.0,1.0,0.0,1.0,0.0]),
                         Answer(state: "시간이 지나면 자연스럽게 친해질 테니 그냥 있는다.", score: [0.0,1.0,0.0,0.0,0.0,0.0]),
                         Answer(state: "누군가 먼저 말을 걸어주길 기다린다.", score: [1.0,0.0,0.0,0.0,0.0,1.0]),
                         Answer(state: "일단 팀원들을 스캔하며 팀 분위기가 좋기를 바란다.", score: [0.0,0.0,0.0,1.0,0.0,0.0])
@@ -43,7 +43,7 @@ extension ContentString{
                     day : 5,
                     answers: [
                         Answer(state: "우리 아이디어는 괜찮은 것 같은데... \n 다음 발표는 제대로 해야겠군!", score: [0.0,0.0,1.3,0.0,0.0,1.3]),
-                        Answer(state: "지적받은 것에 시무룩해진 것도 잠시, \n 피드백에 따라 자료를 바로 보강한다.", score: [0.0,1.3,0.0,1.3,0.0,0.0]),
+                        Answer(state: "지적받은 것에 시무룩해진 것도 잠시, \n 피드백에 따라 부족한 점을 보강한다.", score: [0.0,1.3,0.0,1.3,0.0,0.0]),
                         Answer(state: "우리팀 수고했어요~다음에 잘하면 되죠! \n 일단 긍정적인 마인드를 되찾는다.", score: [1.3,0.0,0.0,0.0,1.3,0.0]),
                     ]),
         //question 5
@@ -56,18 +56,18 @@ extension ContentString{
                         Answer(state: "바다는 예쁘고, 날씨도 좋고.. 힐링 그 잡채.. 자주오면 좋겠다!!", score: [1.4,0,0,1.4,1.4,0])
                     ]),
         //question 6
-      ContentString(question:"당신은 어떻게 할 것인가?",
+      ContentString(question:"당신은 무엇을 할 것인가?",
                     day : 7,
                     answers: [
                         Answer(state: "정리 좋아~ 팀원들의 의견을 모아서 다듬는다.", score: [0,1.5,0,0,0,0]),
-                        Answer(state: "팀원의 부담감을 줄여주기 위해 최선을 다한다.", score: [0,0,1.5,0,0,1.5]),
+                        Answer(state: "팀원들의 부담감을 줄여주기 위해 최선을 다한다.", score: [0,0,1.5,0,0,0]),
                         Answer(state: "우리 팀 말만 해! 팀원들의 의견을 최대한 반영한다.", score: [1.5,0,0,0,0,0]),
-                        Answer(state: "좋아하는 부분은 내가 할게! \n 이건 내가 하겠다고 말한다.", score: [0,0,0,1.5,1.5,0])
+                        Answer(state: "좋아하는 부분은 내가 할게! \n 이건 내가 하겠다고 말한다.", score: [0,0,0,1.5,1.5,1.5])
                         
                     ]),
 
         //question 7
-        ContentString(question:"당신이 생각하는 첫 MC1의 가치는?",
+        ContentString(question:"당신이 생각하는 MC1의 가치는?",
                       day : 8,
                       answers: [
                         Answer(state: "본격적인 프로젝트가 시작되기 전 워밍업!", score: [0,0.5,0,0.5,0,0]),
