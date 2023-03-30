@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct ResultView: View {
-    @Binding var count:Int
+struct ResultViewTAMRA: View {
+    @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
     
     
@@ -27,35 +27,39 @@ struct ResultView: View {
                 }
                 
                 Group{
-                    Image("DANA character")
-                    
-                    Text("확신의 긍정킹,")
-                        .font(.system(size: 33, weight: .bold))
+                    Image("TAMRA character")
+                        .resizable()
+                        .frame(width: 350, height: 350)
                         .padding(.top, -10)
-                        .padding(.bottom, -20)
+                    
+                    Text("도와줘, 탐라에몽!")
+                        .font(.system(size: 33, weight: .bold))
+                        .padding(.top, -30)
                     
                     HStack{
-                        Text(" DANA")
+                        Text(" TAMRA")
                             .font(.system(size: 40, weight: .bold))
                             .foregroundColor(Color(0x24E7B0))
                         Text("유형  ")
                             .font(.system(size: 33, weight: .bold))
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 40)
                 }
                 
-                Text("당신은 MC1에서 영혼 없는 리액션을 담당하셨군요! 당신은 항상 긍정적인 자세로 주변 사람들을 편안하\n게 만들어줍니다. 때로는 자칫 무거워질 수 있는 팀\n의 분위기를 환기 해주고, 영혼 없는 리액션으로 팀\n원들의 사기를 북돋아요! 톡톡 튀는 아이디어까지, 여러분의 팀에게 꼭 필요한 러너군요! 다른 사람의 의견을 잘 받아주며, 자신의 의견 또한 피력할 줄 아\n는 당신, MC1에서도 당신의 긍정 에너지를 발휘했\n기를 바랍니다!")
+                Text("당신은 언제나 유창한 말로 회의를 이끌어나\n갈 수 있는 리더시군요! MC1에서도 멋진 리\n더쉽을 발휘하고, 뛰어난 친화력으로 팀의 단\n합력을 올려줘요. 도라에몽처럼 쉬지 않고 뽑\n아내는 아이디어까지! 순발력까지 갖춘 팀의 아이디어 뱅크예요. 못하는 것이 없는 당신, 모든 러너들이 탐낼만한 인재예요!")
+                    .font(.system(size: 20, weight: .regular))
                     .lineSpacing(6.0)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 60)
                     .padding(.horizontal, 25)
                     .lineLimit(nil)
                 
-                //긍정력
+                //리더쉽
                 HStack{
                     Text(".")
                         .foregroundColor(Color.white)
                     
-                    Text("긍정력")
+                    Text("리더쉽")
+                        .font(.system(size: 17, weight: .semibold))
                     
                     HStack(spacing: 2) {
                         
@@ -91,12 +95,13 @@ struct ResultView: View {
                     }
                 }
                 
-                //포용력
+                //친화력
                 HStack{
                     Text(".")
                         .foregroundColor(Color.white)
                     
-                    Text("포용력")
+                    Text("친화력")
+                        .font(.system(size: 17, weight: .semibold))
                     
                     HStack(spacing: 2) {
                         
@@ -135,6 +140,7 @@ struct ResultView: View {
                 //아이디어
                 HStack{
                     Text("아이디어")
+                        .font(.system(size: 17, weight: .semibold))
                     
                     HStack(spacing: 2) {
                         
@@ -170,12 +176,13 @@ struct ResultView: View {
                     }
                 }
                 
-                //리액션
+                //순발력
                 HStack{
                     Text(".")
                         .foregroundColor(Color.white)
                     
-                    Text("리액션")
+                    Text("순발력")
+                        .font(.system(size: 17, weight: .semibold))
                     
                     HStack(spacing: 2) {
                         
@@ -210,7 +217,7 @@ struct ResultView: View {
                         }
                     }
                 }
-                .padding(.bottom, 60)
+                .padding(.bottom, 40)
 
                 //하단
                 Group{
@@ -222,13 +229,13 @@ struct ResultView: View {
                             .padding(.horizontal, 7)
                             .foregroundColor(Color.black)
                     }
-                    .background(RoundedRectangle(cornerRadius: 15).stroke(lineWidth: 3))
+                    .background(RoundedRectangle(cornerRadius: 20).stroke(lineWidth: 3))
                     .foregroundColor(Color(0x24E7B0))
                     .padding(.top, 30)
                     
                     Button(action: {
                         print(scores)
-                        count = 1
+                        pageStatus = .MAIN
                         scores = [0.0,0.0,0.0,0.0,0.0,0.0]
                     }) {
                         Text("테스트 다시하기")
@@ -237,7 +244,7 @@ struct ResultView: View {
                             .padding(.horizontal, 80)
                             .foregroundColor(Color.white)
                     }
-                    .background(RoundedRectangle(cornerRadius: 15))
+                    .background(RoundedRectangle(cornerRadius: 20))
                     .foregroundColor(Color(0x24E7B0))
                     .padding(.top, 5)
                     .padding(.bottom, 40)
@@ -249,10 +256,11 @@ struct ResultView: View {
 }
 
 // 컨텐트뷰_프리뷰
-struct ResultView_Previews: PreviewProvider {
-    @State static var count = 1
+struct ResultViewTAMRA_Previews: PreviewProvider {
+    @State static var pageStatus = PageStatus.RESULTTAMRA
     @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        ResultView(count: $count,scores: $scores)
+        ResultViewTAMRA(pageStatus: $pageStatus,scores: $scores)
     }
 }
+
