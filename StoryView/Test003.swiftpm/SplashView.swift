@@ -3,7 +3,7 @@ import SwiftUI
 struct SplashView: View {
     var body: some View {
         VStack {
-            Image("logo")
+            Image("logo 1")
                 .resizable()
                 .frame(width: 150, height: 150)
                 .foregroundColor(.accentColor)
