@@ -28,7 +28,7 @@ struct ContentView: View {
             } else {
                 MainView(pageStatus: $pageStatus)
             }
-        }.padding()
+        }
     }
 }
 
