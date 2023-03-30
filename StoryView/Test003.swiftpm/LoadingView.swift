@@ -89,11 +89,11 @@ struct LoadingView: View {
                     case 2:
                         pageStatus = .RESULTTAMRA
                     case 3:
-                        pageStatus = .RESULTKIHYUN
+                        pageStatus = .RESULTRIN
                     case 4:
                         pageStatus = .RESULTDANA
                     case 5:
-                        pageStatus = .RESULTRIN
+                        pageStatus = .RESULTDORIS
                     default :
                         pageStatus = .RESULTPETER
                     }
