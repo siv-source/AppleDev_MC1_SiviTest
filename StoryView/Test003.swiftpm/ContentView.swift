@@ -25,6 +25,8 @@ struct ContentView: View {
                 ResultViewTAMRA(pageStatus: $pageStatus, scores: $scores)
             }  else if pageStatus == .RESULTPETER{
                 ResultViewPETER(pageStatus: $pageStatus, scores: $scores)
+            } else if pageStatus == .RESULTALL{
+                ResultViewAll(pageStatus: $pageStatus, scores: $scores)
             } else {
                 MainView(pageStatus: $pageStatus)
             }

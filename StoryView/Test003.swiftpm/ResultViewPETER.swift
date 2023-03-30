@@ -223,7 +223,11 @@ struct ResultViewPETER: View {
                 //하단
                 Group{
 
-                    Button(action: {}) {
+                    Button(action: {
+                        print(scores)
+                        pageStatus = .RESULTALL
+                        scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                    }) {
                         Text("시비없는 12팀의 다른 유형 보러가기")
                             .font(.system(size: 18, weight: .semibold))
                             .padding()

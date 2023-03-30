@@ -8,4 +8,5 @@ enum PageStatus {
     case RESULTPETER
     case RESULTDORIS
     case RESULTRIN
+    case RESULTALL
 }
