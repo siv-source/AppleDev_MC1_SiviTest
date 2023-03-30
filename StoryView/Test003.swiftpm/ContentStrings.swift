@@ -6,6 +6,7 @@ import SwiftUI
 // 피터, 기현, 탐라, 린, 다나, 도리스 순
 struct ContentString: Hashable{
     var question : String
+    var day : Int
     var answers : [Answer]
 }
 
@@ -13,6 +14,7 @@ extension ContentString{
     static let storyData: [ContentString] =
     [   //question 1
         ContentString(question:"당신은 어떻게 행동하겠는가?",
+                      day : 1,
                     answers: [
                         Answer(state: "어색한 건 싫어! 말을 먼저 건다.", score: [0.0,0.0,1.0,0.0,1.0,0.0]),
                         Answer(state: "시간이 지나면 자연스럽게 친해질 테니 그냥 있는다.", score: [0.0,1.0,0.0,0.0,0.0,0.0]),
@@ -21,6 +23,7 @@ extension ContentString{
                     ]),
         //question 2
       ContentString(question:"당신은 어떻게 행동하겠는가?",
+                    day : 3,
                     answers: [
                         Answer(state: "각자 조가 짜지고, 남는 팀원과 함께 간다.", score: [1.1,0.0,0.0,1.1,0.0,0.0]),
                         Answer(state: "누구와 가도 상관없어!\n 바로 인터뷰할 사람을 물색!", score: [0.0,0.0,0.0,0.0,1.1,1.1]),
@@ -29,6 +32,7 @@ extension ContentString{
                     ]),
         //question 3
       ContentString(question:"당신의 역할은?",
+                    day : 4,
                     answers: [
                         Answer(state: "막히거나 논지를 벗어날 때, 정리하고 보강하기", score: [1.2,1.2,0.0,0.0,0.0,0.0]),
                         Answer(state: "이건 어떨까? 새로운 방향과 아이디어 제시하기", score: [0.0,0.0,0.0,1.2,0.0,1.2]),
@@ -36,6 +40,7 @@ extension ContentString{
                     ]),
         //question 4
       ContentString(question:"당신의 반응은?",
+                    day : 5,
                     answers: [
                         Answer(state: "우리 아이디어는 괜찮은 것 같은데... \n 다음 발표는 제대로 해야겠군!", score: [0.0,0.0,1.3,0.0,0.0,1.3]),
                         Answer(state: "지적받은 것에 시무룩해진 것도 잠시, \n 피드백에 따라 자료를 바로 보강한다.", score: [0.0,1.3,0.0,1.3,0.0,0.0]),
@@ -43,6 +48,7 @@ extension ContentString{
                     ]),
         //question 5
       ContentString(question:"밥을 먹으며 당신은 무슨 생각 중..?",
+                    day : 6,
                     answers: [
                         Answer(state: "요즘 물가가 많이 올랐군,,,", score: [0.0,1.4,0.0,0.0,0.0,0.0]),
                         Answer(state: "밥먹고는 있지만, 프로젝트에 대한 생각을 계속한다", score: [0,0,1.4,0,0,0]),
@@ -51,6 +57,7 @@ extension ContentString{
                     ]),
         //question 6
       ContentString(question:"당신은 어떻게 할 것인가?",
+                    day : 7,
                     answers: [
                         Answer(state: "정리 좋아~ 팀원들의 의견을 모아서 다듬는다.", score: [0,1.5,0,0,0,0]),
                         Answer(state: "팀원의 부담감을 줄여주기 위해 최선을 다한다.", score: [0,0,1.5,0,0,1.5]),
@@ -61,6 +68,7 @@ extension ContentString{
 
         //question 7
         ContentString(question:"당신이 생각하는 첫 MC1의 가치는?",
+                      day : 8,
                       answers: [
                         Answer(state: "본격적인 프로젝트가 시작되기 전 워밍업!", score: [0,0.5,0,0.5,0,0]),
                         Answer(state: "전반적인 아카데미 생활에 익숙해질 수 있었던 시간", score: [0,0,0.5,0,0,0.5]),

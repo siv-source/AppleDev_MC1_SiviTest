@@ -13,7 +13,7 @@ struct SlideView: View {
                 // DAY 구문
                 HStack(){
                     Spacer().frame(width:20)
-                    Text("DAY "+String(describing:(count+1)) + ".")
+                    Text("DAY "+String(describing:(content.day)) + ".")
                         .frame(width: 310,height: 30, alignment: .leading)
                         .font(.system(size: 32).weight(.bold))
                     
