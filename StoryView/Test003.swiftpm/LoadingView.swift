@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoadingView: View {
     
-    @Binding var count:Int
+    @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
     
     
@@ -33,13 +33,13 @@ struct LoadingView: View {
                 Image(imageNames[currentImageIndex])
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 150, height: 150)
                     .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
                         currentImageIndex = (currentImageIndex + 1) % imageNames.count
                     }
                 ZStack {
                     LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
-                }.frame(width: 300, height: 300)
+                }.frame(width: 250, height: 250)
                     .onAppear() {
                         Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
                             (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
@@ -71,7 +71,7 @@ struct LoadingView: View {
             Button(
                 action: {
                     print(scores)
-                    count = 0
+                    pageStatus = .MAIN
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
                 }){Text("메인으로 돌아가기")
                         .underline()
@@ -99,16 +99,16 @@ struct LoadingViewCircle: View {
     var body: some View {
         Circle()
             .trim(from: start, to: end)
-            .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round))
+            .stroke(style: StrokeStyle(lineWidth: 24, lineCap: .round))
             .fill(color)
             .rotationEffect(rotation)
     }
 }
 
 struct LoadingView_Previews: PreviewProvider {
-    @State static var count = 1
+    @State static var pageStatus : PageStatus = .STORY
     @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        LoadingView(count: $count,scores: $scores)
+        LoadingView(pageStatus: $pageStatus,scores: $scores)
     }
 }

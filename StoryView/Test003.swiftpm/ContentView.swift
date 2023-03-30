@@ -8,7 +8,7 @@ struct ContentView: View {
         // 버티컬리하게 쪼갠다.
         VStack {
             if pageStatus == PageStatus.PREREPORT {
-                PreReportView(pageStatus: $pageStatus, scores: $scores)
+                LoadingView(pageStatus: $pageStatus, scores: $scores)
             } else if pageStatus == PageStatus.MAIN{
                 MainView(pageStatus: $pageStatus)
             } else {

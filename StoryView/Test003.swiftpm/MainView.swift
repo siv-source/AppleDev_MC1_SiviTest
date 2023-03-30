@@ -17,7 +17,7 @@ struct MainView: View {
             Image("logo 1")
                 .resizable()
                 .foregroundColor(.accentColor)
-                .frame(width: 250, height: 250)
+                .frame(width: 200, height: 200)
                 .padding(.bottom, 40)
 
 
