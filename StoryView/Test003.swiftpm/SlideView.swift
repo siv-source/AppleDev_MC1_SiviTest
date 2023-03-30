@@ -49,7 +49,14 @@ struct SlideView: View {
                 }
                 Spacer()
                 
-             
+                Button(action: {
+                    webView = true
+                }) {
+                    Text("질문 다시보기")
+                        .underline()
+                        .foregroundColor(Color(0x24E7B0))
+                }
+                Spacer().frame(height:16)
                 Button(action: {
                     // print("메인으로 돌아가기")
                     pageStatus = .MAIN
