@@ -26,14 +26,14 @@ extension ContentString{
                         Answer(state: "새로운 사람과 말하는 것을 어려워하는 팀원이 있는지 물어보고, 나와 함께 하자고 한다.", score: [0,0,0,1,0,0])
                     ]),
         //question 3
-      ContentString(question:"첫번째 CBL 시작, 우리들의 ACADEMY LIFE를 위해 Generating Solution Concepts 과정을 행하는 중... 당신의 역할은?",
+      ContentString(question:"첫번째 CBL 시작, ACADEMY LIFE를 위한 솔루션 탐색 중... 당신의 역할은?",
                     answers: [
                         Answer(state: "회의 중 막히는 부분이 있거나, 논지를 벗어날 때 한번씩 정리하고 보강하기 ", score: [1,0,0,0,0,0]),
                         Answer(state: "우리 팀원들 대단해~좋아요~(긍정 리액션담당!) 공감하고 칭찬하기!", score: [0,1,0,0,0,0]),
                         Answer(state: "이것도 생각해보자! 새로운 방향과 아이디어 제시히기! ", score: [0,0,1,0,0,0]),
                     ]),
         //question 4
-      ContentString(question:"같은 그룹에 속해있는 다른 팀과 Our Solution Concept을 공유하기 위해, 발표를 했다.  발표준비가 부족한 것을 지적받았다. 당신의 반응은?",
+      ContentString(question:"오늘은 Milestone 발표하는 날! 발표준비가 부족한 것을 지적받았다. 당신의 반응은?",
                     answers: [
                         Answer(state: "우리 아이디어는 괜찮은 것 같은데... 다음 발표는 제대로 해야겠군!", score: [1,0,0,0,0,0]),
                         Answer(state: "지적받은 것에 시무룩해하면서, 피드백에 따라 자료를 바로 보강한다.", score: [0,1,0,0,0,0]),

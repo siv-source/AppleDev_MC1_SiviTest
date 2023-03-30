@@ -8,7 +8,7 @@ struct MainView: View {
         VStack {
             Text("시비없는 12팀으로 알아보는")
                 .font(.system(size: 16))
-                .padding(8)
+                .padding(0.001)
             Text("나는 어떤 러너일까!?")
                 .fontWeight(.black)
                 .font(.system(size: 32))
