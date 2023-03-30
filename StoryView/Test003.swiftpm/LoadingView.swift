@@ -58,14 +58,7 @@ struct LoadingView: View {
                 
             Spacer().frame(height: 30)
             
-//            ZStack {
-//                LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
-//            }.frame(width: 50, height: 50)
-//                .onAppear() {
-//                    Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
-//                        (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
-//                    }
-//                }
+
             Spacer()
             
             Button(

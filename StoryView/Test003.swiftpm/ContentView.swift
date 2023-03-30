@@ -14,7 +14,7 @@ struct ContentView: View {
             } else {
                 StoryView(pageStatus: $pageStatus, scores: $scores)
             }
-        }.padding()
+        }
     }
 }
 

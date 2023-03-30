@@ -9,43 +9,46 @@ struct SlideView: View {
         let content = ContentString.storyData[count%ContentString.storyData.count]
         HStack {
             VStack{
+                Spacer().frame(width:20, height: 30)
                 // DAY 구문
                 HStack(){
                     Spacer().frame(width:20)
-                    Text("Day "+String(describing:(count+1)))
-                        .frame(width: 340,height: 30, alignment: .leading)
-                        .font(.system(size: 25).bold())
+                    Text("DAY "+String(describing:(count+1)) + ".")
+                        .frame(width: 310,height: 30, alignment: .leading)
+                        .font(.system(size: 32).weight(.bold))
                     
                     Spacer().frame(width:20)
                 }
-                
-                Spacer().frame(width:20,height:10)
-                
-                // 문제 구문
-                HStack(){
-                    Spacer().frame(width:20)
-                    Text(content.question) // 어찌된 이유인지 버튼을 빠르게 누를 때 자꾸 count가 값을 벗어남...ㅠ
+                VStack{
+                    Spacer().frame(width:20,height:50)
                     
-                        .font(.system(size:24))
-                        .minimumScaleFactor(0.01)
-                        .lineSpacing(5)
-                        .frame(width: 350)
-                    Spacer().frame(width:20)
-                }.frame(height:120)
-                
-                Spacer().frame(width:20,height:30)
-                
-                Group{
+                    // 문제 구문
+                    HStack(){
+                        Spacer().frame(width:20)
+                        Text(content.question) // 어찌된 이유인지 버튼을 빠르게 누를 때 자꾸 count가 값을 벗어남...ㅠ
+                            .font(.system(size:24))
+                            .fontWeight(.medium)
+                            .lineSpacing(5)
+                            .frame(width: 340)
+                        Spacer().frame(width:20)
+                    }.frame(height:90)
                     
-                    // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
-                    //ForEach는 Hashable 하게 써야 동적인 (표시해야할 갯수가 세 개에서 네 개가 된다든지) 에서도 사용할 수 있다.
-                    ForEach(content.answers, id:\.self){ answer in
-                        SlideAnswerView(scores: $scores, count: $count,pageStatus:$pageStatus, answer: answer)
+                    Spacer().frame(width:20,height:20)
+                    
+                    Group{
+                        
+                        // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
+                        //ForEach는 Hashable 하게 써야 동적인 (표시해야할 갯수가 세 개에서 네 개가 된다든지) 에서도 사용할 수 있다.
+                        ForEach(content.answers, id:\.self){ answer in
+                            SlideAnswerView(scores: $scores, count: $count,pageStatus:$pageStatus, answer: answer)
+                        }
                     }
+                    Spacer().frame(width:20,height:60)
+                    
                 }
+                Spacer()
                 
-                Spacer().frame(width:20,height:60)
-                
+             
                 Button(action: {
                     // print("메인으로 돌아가기")
                     pageStatus = .MAIN
@@ -56,6 +59,9 @@ struct SlideView: View {
                         .underline()
                         .foregroundColor(Color(0x24E7B0))
                 }
+                
+                Spacer().frame(height:20)
+            
             }
         }
     }
@@ -65,18 +71,14 @@ struct RoundedTextView: View {
     let text : String
     let colors : Colors
     var body: some View {
-        
-        Text(text)
-            .font(.system(size:15))
-            .frame(width: 320,height:40, alignment: .center)
-            .padding(10)
-            .foregroundColor(colors.color1)
-            .background(colors.color2)
-            .cornerRadius(15)
-            .overlay{
-                RoundedRectangle(cornerRadius: 15).strokeBorder(Color.gray, lineWidth: 0.3)
+        // text 카운트 한다
+        let textlength : Int = self.text.count
+        if textlength >= 28 {
+            AnswerText(text: self.text, colors: self.colors, height: 48)
             }
-            .shadow(color: Color(0xCECECE).opacity(0.6), radius: 2)
+        else {
+            AnswerText(text: self.text, colors: self.colors, height: 30)
+        }
     }
 }
 
@@ -87,6 +89,8 @@ struct AnswerButton: View{
     var body: some View{
         Button(action: self.action){}
             .buttonStyle(AnswerButtonStyle(text: self.text, foreBackColors: self.foreBackColors))
+            .padding(.top, 10)
+
     }
 }
 
@@ -116,5 +120,26 @@ struct SlideView_Previews: PreviewProvider {
     @State static var count:Int = 2
     static var previews: some View {
         SlideView(pageStatus: $pageStatus,scores: $scores, count: $count)
+    }
+}
+
+struct AnswerText:View{
+    var text:String
+    var colors:Colors
+    var height:CGFloat
+    
+    var body:some View{
+        Text(text)
+            .font(.system(size:16))
+            .frame(width: 320,height:self.height, alignment: .center)
+            .padding(10)
+            .foregroundColor(colors.color1)
+            .background(colors.color2)
+            .multilineTextAlignment(.center)
+            .cornerRadius(15)
+            .overlay{
+                RoundedRectangle(cornerRadius: 15).strokeBorder(Color.gray, lineWidth: 0.3)
+            }
+            .shadow(color: Color(0xCECECE).opacity(0.6), radius: 2)
     }
 }
