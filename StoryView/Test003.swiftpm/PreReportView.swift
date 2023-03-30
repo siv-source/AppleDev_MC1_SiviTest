@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PreReportView: View {
-    @Binding var count:Int
+    @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
     
     
@@ -15,19 +15,26 @@ struct PreReportView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
-                .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+                .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
                     currentImageIndex = (currentImageIndex + 1) % imageNames.count
                 }
             
-            Spacer().frame(height:20)
-            Text("처리중~")
+            Spacer().frame(height:40)
+            
+            Text("당신의 러너 캐릭터를")
+                .fontWeight(.bold)
+            Text("분석하고 있어요")
+                .fontWeight(.bold)
+                
             Spacer()
             Button(
                 action: {
                     print(scores)
-                    count = 1
+                    pageStatus = .MAIN
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
-                }){Text("메인으로 돌아가기...")
+                }){Text("메인으로 돌아가기")
+                        .underline()
+                        .foregroundColor(Color(0x24E7B0))
                 }
         }
     }
@@ -35,9 +42,9 @@ struct PreReportView: View {
 
 // 컨텐트뷰_프리뷰
 struct PreReportView_Previews: PreviewProvider {
-    @State static var count = 1
+    @State static var pageStatus = PageStatus.PREREPORT
     @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        PreReportView(count: $count,scores: $scores)
+        PreReportView(pageStatus: $pageStatus, scores: $scores)
     }
 }

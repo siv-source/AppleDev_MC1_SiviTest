@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainView: View {
 
-    @Binding var count:Int
+    @Binding var pageStatus:PageStatus
 
     var body: some View {
         VStack {
@@ -17,7 +17,7 @@ struct MainView: View {
             Image("logo 1")
                 .resizable()
                 .foregroundColor(.accentColor)
-                .frame(width: 250, height: 250)
+                .frame(width: 200, height: 200)
                 .padding(.bottom, 40)
 
 
@@ -28,8 +28,8 @@ struct MainView: View {
             
 
             Button{
-                count += 1
-                // print("클릭시페이지 이동")
+                pageStatus = .STORY
+                
             } label: {
                 Text("러너 유형 테스트 시작하기")
                     .foregroundColor(.white)
