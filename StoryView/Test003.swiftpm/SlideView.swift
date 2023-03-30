@@ -4,6 +4,7 @@ struct SlideView: View {
     @Binding var pageStatus:PageStatus
     @Binding var scores:[Double]
     @Binding var count:Int
+    @Binding var webView:Bool
     
     var body: some View {
         let content = ContentString.storyData[count%ContentString.storyData.count]
@@ -40,7 +41,7 @@ struct SlideView: View {
                         // 갯수가 많아지면 렉걸린댄다... (그룹화 중요하지.. 암)
                         //ForEach는 Hashable 하게 써야 동적인 (표시해야할 갯수가 세 개에서 네 개가 된다든지) 에서도 사용할 수 있다.
                         ForEach(content.answers, id:\.self){ answer in
-                            SlideAnswerView(scores: $scores, count: $count,pageStatus:$pageStatus, answer: answer)
+                            SlideAnswerView(scores: $scores, count: $count,pageStatus:$pageStatus,webView:$webView, answer: answer)
                         }
                     }
                     Spacer().frame(width:20,height:60)
@@ -98,6 +99,7 @@ struct SlideAnswerView : View {
     @Binding var scores:[Double]
     @Binding var count : Int
     @Binding var pageStatus : PageStatus
+    @Binding var webView:Bool
     var answer : Answer
     var body: some View {
         VStack{
@@ -107,6 +109,7 @@ struct SlideAnswerView : View {
                 } else {
                     pageStatus = .PREREPORT
                 }
+                webView = true
                 scores = zip(scores, answer.score).map(+) //더하기
             })
         }
@@ -118,8 +121,9 @@ struct SlideView_Previews: PreviewProvider {
     @State static var pageStatus = PageStatus.STORY
     @State static var scores:[Double] = [0.2,0.3,0.4,0.5,0.6,0.7]
     @State static var count:Int = 2
+    @State static var webView:Bool = true
     static var previews: some View {
-        SlideView(pageStatus: $pageStatus,scores: $scores, count: $count)
+        SlideView(pageStatus: $pageStatus,scores: $scores, count: $count, webView: $webView)
     }
 }
 
