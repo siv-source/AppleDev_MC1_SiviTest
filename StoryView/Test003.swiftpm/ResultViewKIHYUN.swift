@@ -32,7 +32,7 @@ struct ResultViewKIHYUN: View {
                         .frame(width: 350, height: 350)
                         .padding(.top, -10)
                     
-                    Text("러너들의 빳데리,")
+                    Text("물은 물이요 산은 산이로다,")
                         .font(.system(size: 33, weight: .bold))
                         .padding(.top, -30)
                     
