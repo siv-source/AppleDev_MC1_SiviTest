@@ -1,6 +1,12 @@
 import SwiftUI
 
 struct ResultView: View {
+    @Binding var count:Int
+    @Binding var scores:[Double]
+    
+    
+    let imageNames = ["001","002","003","004","005","006"]
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .center){
@@ -204,14 +210,11 @@ struct ResultView: View {
                         }
                     }
                 }
+                .padding(.bottom, 60)
 
                 //하단
                 Group{
-                    Text("사진 저장하기")
-                        .underline()
-                        .foregroundColor(Color(0x24E7B0))
-                        .padding(.top, 70)
-                    
+
                     Button(action: {}) {
                         Text("시비없는 12팀의 다른 유형 보러가기")
                             .font(.system(size: 18, weight: .semibold))
@@ -223,7 +226,11 @@ struct ResultView: View {
                     .foregroundColor(Color(0x24E7B0))
                     .padding(.top, 30)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        print(scores)
+                        count = 1
+                        scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                    }) {
                         Text("테스트 다시하기")
                             .font(.system(size: 18, weight: .bold))
                             .padding()
@@ -243,7 +250,9 @@ struct ResultView: View {
 
 // 컨텐트뷰_프리뷰
 struct ResultView_Previews: PreviewProvider {
+    @State static var count = 1
+    @State static var scores : [Double] = [0,0,0,0,0,0]
     static var previews: some View {
-        ResultView()
+        ResultView(count: $count,scores: $scores)
     }
 }
