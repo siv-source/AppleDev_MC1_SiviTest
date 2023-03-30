@@ -25,7 +25,7 @@ struct ResultViewAll: View {
                         .font(.system(size: 30, weight: .bold))
                         .padding(.top, 0)
                         .padding(.bottom, 25)
-                }
+                }.frame(width: 1000)
                 
                 //DANA, DORIS
                 HStack (spacing: 25) {
