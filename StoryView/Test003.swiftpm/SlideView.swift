@@ -26,11 +26,19 @@ struct SlideView: View {
                     // 문제 구문
                     HStack(){
                         Spacer().frame(width:20)
-                        Text(content.question) // 어찌된 이유인지 버튼을 빠르게 누를 때 자꾸 count가 값을 벗어남...ㅠ
-                            .font(.system(size:24))
-                            .fontWeight(.medium)
-                            .lineSpacing(5)
-                            .frame(width: 340)
+                        HStack(alignment: .center){
+                            Button {
+                                webView = true
+                            } label: {
+                                Image(systemName: "chevron.backward").resizable()
+                                    .frame(width: 15.0, height: 22.0).foregroundColor(Color(0x24E7B0))
+                            }
+                            Spacer().frame(width:20)
+                            Text(content.question) // 어찌된 이유인지 버튼을 빠르게 누를 때 자꾸 count가 값을 벗어남...ㅠ
+                                .font(.system(size:24))
+                                .fontWeight(.medium)
+                                .lineSpacing(5)
+                        }
                         Spacer().frame(width:20)
                     }.frame(height:90)
                     
@@ -50,14 +58,6 @@ struct SlideView: View {
                 Spacer()
                 
                 Button(action: {
-                    webView = true
-                }) {
-                    Text("질문 다시보기")
-                        .underline()
-                        .foregroundColor(Color(0x24E7B0))
-                }
-                Spacer().frame(height:16)
-                Button(action: {
                     // print("메인으로 돌아가기")
                     pageStatus = .MAIN
                     scores = [0.0,0.0,0.0,0.0,0.0,0.0]
@@ -65,7 +65,7 @@ struct SlideView: View {
                 }) {
                     Text("메인으로 돌아가기")
                         .underline()
-                        .foregroundColor(Color(0x24E7B0))
+                        .foregroundColor(Color(0xA7A7A7))
                 }
                 
                 Spacer().frame(height:20)
