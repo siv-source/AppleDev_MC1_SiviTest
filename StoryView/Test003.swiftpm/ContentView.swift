@@ -12,7 +12,7 @@ struct ContentView: View {
             } else if pageStatus == PageStatus.MAIN{
                 MainView(pageStatus: $pageStatus)
             } else {
-                StoryView(pageStatus: $pageStatus, scores:$scores)
+                StoryView(pageStatus: $pageStatus, scores: $scores)
             }
         }.padding()
     }
