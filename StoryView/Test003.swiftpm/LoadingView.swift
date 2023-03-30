@@ -25,7 +25,7 @@ struct LoadingView: View {
     @State var rotationDegreeS1 = initialDegree
     
     let animationTime: Double = 1.0
-
+    
     var body: some View {
         VStack {
             Spacer()
@@ -55,38 +55,60 @@ struct LoadingView: View {
             Text("분석하고 있어요")
                 .fontWeight(.bold)
                 .font(.system(size: 30))
-                
+            
             Spacer().frame(height: 30)
             
-//            ZStack {
-//                LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
-//            }.frame(width: 50, height: 50)
-//                .onAppear() {
-//                    Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
-//                        (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
-//                    }
-//                }
+            //            ZStack {
+            //                LoadingViewCircle(start: spinnerStart, end: spinnerEndS1, rotation: rotationDegreeS1, color: Color(0x24E7B0))
+            //            }.frame(width: 50, height: 50)
+            //                .onAppear() {
+            //                    Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) {
+            //                        (mainTimer) in self.animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
+            //                    }
+            //                }
             Spacer()
             
-            Button(
-                action: {
-                    print(scores)
-                    pageStatus = .MAIN
-                    scores = [0.0,0.0,0.0,0.0,0.0,0.0]
-                }){Text("메인으로 돌아가기")
-                        .underline()
-                        .foregroundColor(Color(0x24E7B0))
+//            Button(
+//                action: {
+//                    print(scores)
+//                    pageStatus = .MAIN
+//                    scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+//                }){Text("메인으로 돌아가기")
+//                        .underline()
+//                        .foregroundColor(Color(0x24E7B0))
+//                }
+        }.onAppear {
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+                if let maxIndex = scores.firstIndex(where: { $0 == scores.max() }) {
+                    print("The index of the maximum value is \(maxIndex)")
+                    switch maxIndex {
+                    case 0:
+                        pageStatus = .RESULTPETER
+                    case 1:
+                        pageStatus = .RESULTKIHYUN
+                    case 2:
+                        pageStatus = .RESULTTAMRA
+                    case 3:
+                        pageStatus = .RESULTKIHYUN
+                    case 4:
+                        pageStatus = .RESULTDANA
+                    case 5:
+                        pageStatus = .RESULTRIN
+                    default :
+                        pageStatus = .RESULTPETER
+                    }
                 }
+            }
         }
     }
     
     func animateSpinner(with timeInterval: Double, completion: @escaping (() -> Void)) {
-            Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false) { _ in
-                withAnimation(Animation.easeInOut(duration: rotationTime)) {
-                    completion()
-                }
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: false) { _ in
+            withAnimation(Animation.easeInOut(duration: rotationTime)) {
+                completion()
             }
         }
+    }
 }
 
 struct LoadingViewCircle: View {

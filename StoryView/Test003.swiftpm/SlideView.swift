@@ -25,14 +25,12 @@ struct SlideView: View {
                 HStack(){
                     Spacer().frame(width:20)
                     Text(content.question) // 어찌된 이유인지 버튼을 빠르게 누를 때 자꾸 count가 값을 벗어남...ㅠ
-                    
                         .font(.system(size:24))
                         .minimumScaleFactor(0.01)
                         .lineSpacing(5)
                         .frame(width: 350)
                     Spacer().frame(width:20)
                 }.frame(height:120)
-                
                 Spacer().frame(width:20,height:30)
                 
                 Group{
