@@ -2,6 +2,8 @@ import SwiftUI
 
 //구조체를 만든다
 // Hashable 하게 하여 키값으로 Foreach를 써먹을 수 있게 한다
+
+// 피터, 기현, 탐라, 린, 다나, 도리스 순
 struct ContentString: Hashable{
     var question : String
     var answers : [Answer]
@@ -56,6 +58,7 @@ extension ContentString{
                         Answer(state: "좋아하는 부분은 내가 할게! \n 이건 내가 하겠다고 말한다.", score: [1,0,0,0,0,0])
                         
                     ]),
+
         //question 7
         ContentString(question:"당신이 생각하는 첫 MC1의 가치는?",
                       answers: [

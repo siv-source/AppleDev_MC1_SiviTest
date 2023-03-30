@@ -28,7 +28,7 @@ struct MainView: View {
             Spacer()
                 .frame(height: 14)
 
-            Text("나는 시비없는 12팀에서")
+            Text("MC1에서 나는")
                 .font(.system(size: 20))
                 .fontWeight(.regular)
             Text("어떤 성향의 러너였을지 알아보자!")
@@ -42,7 +42,7 @@ struct MainView: View {
                 pageStatus = .STORY
                 
             } label: {
-                Text("러너 유형 테스트 시작하기")
+                Text("테스트 시작하기")
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .frame(width: 250)
