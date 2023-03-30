@@ -21,7 +21,7 @@ struct LoadingView: View {
     static let initialDegree: Angle = .degrees(270)
     
     @State var spinnerStart:CGFloat = 0.0
-    @State var spinnerEndS1: CGFloat = 0.03
+    @State var spinnerEndS1: CGFloat = 0.0
     @State var rotationDegreeS1 = initialDegree
     
     let animationTime: Double = 1.0
@@ -70,7 +70,7 @@ struct LoadingView: View {
 //                        .foregroundColor(Color(0x24E7B0))
 //                }
         }.onAppear {
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { timer in
                 if let maxIndex = scores.firstIndex(where: { $0 == scores.max() }) {
                     print("The index of the maximum value is \(maxIndex)")
                     switch maxIndex {
