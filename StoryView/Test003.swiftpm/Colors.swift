@@ -32,14 +32,6 @@ extension Colors{
     
 }
 
-struct AnswerButtonStyle : ButtonStyle{
-    var text: String
-    var foreBackColors: [Colors]
-    
-    func makeBody(configuration: Self.Configuration) -> some View {
-        let displayText = configuration.isPressed ? foreBackColors[1] : foreBackColors[0]
-        return RoundedTextView(text: self.text, colors: displayText)
-    }
-}
+
 
 

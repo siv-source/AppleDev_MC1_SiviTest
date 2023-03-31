@@ -75,33 +75,6 @@ struct SlideView: View {
     }
 }
 
-struct RoundedTextView: View {
-    let text : String
-    let colors : Colors
-    var body: some View {
-        // text 카운트 한다
-        let textlength : Int = self.text.count
-        if textlength >= 28 {
-            AnswerText(text: self.text, colors: self.colors, height: 48)
-            }
-        else {
-            AnswerText(text: self.text, colors: self.colors, height: 30)
-        }
-    }
-}
-
-struct AnswerButton: View{
-    var text : String
-    var foreBackColors : [Colors]
-    var action:() -> Void
-    var body: some View{
-        Button(action: self.action){}
-            .buttonStyle(AnswerButtonStyle(text: self.text, foreBackColors: self.foreBackColors))
-            .padding(.top, 10)
-
-    }
-}
-
 struct SlideAnswerView : View {
     @Binding var scores:[Double]
     @Binding var count : Int
@@ -123,14 +96,40 @@ struct SlideAnswerView : View {
     }
 }
 
-// 컨텐트뷰_프리뷰
-struct SlideView_Previews: PreviewProvider {
-    @State static var pageStatus = PageStatus.STORY
-    @State static var scores:[Double] = [0.2,0.3,0.4,0.5,0.6,0.7]
-    @State static var count:Int = 2
-    @State static var webView:Bool = true
-    static var previews: some View {
-        SlideView(pageStatus: $pageStatus,scores: $scores, count: $count, webView: $webView)
+struct AnswerButton: View{
+    var text : String
+    var foreBackColors : [Colors]
+    var action:() -> Void
+    var body: some View{
+        Button(action: self.action){}
+            .buttonStyle(AnswerButtonStyle(text: self.text, foreBackColors: self.foreBackColors))
+            .padding(.top, 10)
+
+    }
+}
+
+struct AnswerButtonStyle : ButtonStyle{
+    var text: String
+    var foreBackColors: [Colors]
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        let displayText = configuration.isPressed ? foreBackColors[1] : foreBackColors[0]
+        return RoundedTextView(text: self.text, colors: displayText)
+    }
+}
+
+struct RoundedTextView: View {
+    let text : String
+    let colors : Colors
+    var body: some View {
+        // text 카운트 한다
+        let textlength : Int = self.text.count
+        if textlength >= 28 {
+            AnswerText(text: self.text, colors: self.colors, height: 48)
+            }
+        else {
+            AnswerText(text: self.text, colors: self.colors, height: 30)
+        }
     }
 }
 
@@ -155,3 +154,13 @@ struct AnswerText:View{
     }
 }
 
+// 컨텐트뷰_프리뷰
+struct SlideView_Previews: PreviewProvider {
+    @State static var pageStatus = PageStatus.STORY
+    @State static var scores:[Double] = [0.2,0.3,0.4,0.5,0.6,0.7]
+    @State static var count:Int = 2
+    @State static var webView:Bool = true
+    static var previews: some View {
+        SlideView(pageStatus: $pageStatus,scores: $scores, count: $count, webView: $webView)
+    }
+}
