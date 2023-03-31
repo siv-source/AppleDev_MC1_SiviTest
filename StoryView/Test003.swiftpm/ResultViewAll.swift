@@ -32,8 +32,8 @@ struct ResultViewAll: View {
                     VStack{
                         Button(action: {
                             print(scores)
-                            pageStatus = .RESULTDANA
-                            scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                            scores = [0.0,0.0,0.0,0.0,6.0,0.0]
+                            pageStatus = .RESULT
                         }) {
                             Image("DANA character")
                                 .resizable()
@@ -52,8 +52,8 @@ struct ResultViewAll: View {
                     VStack{
                         Button(action: {
                             print(scores)
-                            pageStatus = .RESULTDORIS
-                            scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                            scores = [0.0,0.0,0.0,0.0,0.0,6.0]
+                            pageStatus = .RESULT
                         }) {
                             Image("DORIS character")
                                 .resizable()
@@ -75,8 +75,8 @@ struct ResultViewAll: View {
                     VStack{
                         Button(action: {
                             print(scores)
-                            pageStatus = .RESULTKIHYUN
-                            scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                            scores = [0.0,6.0,0.0,0.0,0.0,0.0]
+                            pageStatus = .RESULT
                         }) {
                             Image("KIHYUN character")
                                 .resizable()
@@ -95,8 +95,8 @@ struct ResultViewAll: View {
                     VStack{
                         Button(action: {
                             print(scores)
-                            pageStatus = .RESULTPETER
-                            scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                            scores = [6.0,0.0,0.0,0.0,0.0,0.0]
+                            pageStatus = .RESULT
                         }) {
                             Image("PETER character")
                                 .resizable()
@@ -118,8 +118,8 @@ struct ResultViewAll: View {
                     VStack{
                         Button(action: {
                             print(scores)
-                            pageStatus = .RESULTRIN
-                            scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                            scores = [0.0,0.0,0.0,6.0,0.0,0.0]
+                            pageStatus = .RESULT
                         }) {
                             Image("RIN character")
                                 .resizable()
@@ -138,8 +138,8 @@ struct ResultViewAll: View {
                     VStack{
                         Button(action: {
                             print(scores)
-                            pageStatus = .RESULTTAMRA
-                            scores = [0.0,0.0,0.0,0.0,0.0,0.0]
+                            scores = [0.0,0.0,6.0,0.0,0.0,0.0]
+                            pageStatus = .RESULT
                         }) {
                             Image("TAMRA character")
                                 .resizable()

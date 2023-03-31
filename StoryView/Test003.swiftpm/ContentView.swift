@@ -13,18 +13,8 @@ struct ContentView: View {
                 MainView(pageStatus: $pageStatus)
             } else if pageStatus == .STORY{
                 StoryView(pageStatus: $pageStatus, scores: $scores)
-            } else if pageStatus == .RESULTDANA{
-                ResultViewDANA(pageStatus: $pageStatus, scores: $scores)
-            }  else if pageStatus == .RESULTDORIS{
-                ResultViewDORIS(pageStatus: $pageStatus, scores: $scores)
-            }  else if pageStatus == .RESULTKIHYUN{
-                ResultViewKIHYUN(pageStatus: $pageStatus, scores: $scores)
-            }  else if pageStatus == .RESULTRIN{
-                ResultViewRIN(pageStatus: $pageStatus, scores: $scores)
-            }  else if pageStatus == .RESULTTAMRA{
-                ResultViewTAMRA(pageStatus: $pageStatus, scores: $scores)
-            }  else if pageStatus == .RESULTPETER{
-                ResultViewPETER(pageStatus: $pageStatus, scores: $scores)
+            } else if pageStatus == .RESULT{
+                ResultView(pageStatus: $pageStatus, scores: $scores)
             } else if pageStatus == .RESULTALL{
                 ResultViewAll(pageStatus: $pageStatus, scores: $scores)
             } else {

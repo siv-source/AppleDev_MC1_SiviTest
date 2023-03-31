@@ -71,25 +71,7 @@ struct LoadingView: View {
 //                }
         }.onAppear {
             Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { timer in
-                if let maxIndex = scores.firstIndex(where: { $0 == scores.max() }) {
-                    print("The index of the maximum value is \(maxIndex)")
-                    switch maxIndex {
-                    case 0:
-                        pageStatus = .RESULTPETER
-                    case 1:
-                        pageStatus = .RESULTKIHYUN
-                    case 2:
-                        pageStatus = .RESULTTAMRA
-                    case 3:
-                        pageStatus = .RESULTRIN
-                    case 4:
-                        pageStatus = .RESULTDANA
-                    case 5:
-                        pageStatus = .RESULTDORIS
-                    default :
-                        pageStatus = .RESULTPETER
-                    }
-                }
+                pageStatus = .RESULT
             }
         }
     }
