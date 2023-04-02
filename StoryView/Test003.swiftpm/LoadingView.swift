@@ -13,7 +13,7 @@ struct LoadingView: View {
     @Binding var scores:[Double]
     
     
-    let imageNames = ["001","002","003","004","005","006"]
+    let imageNames = ["PETER character","KIHYUN character","TAMRA character","RIN character","DANA character","DORIS character"]
     @State private var currentImageIndex = 0
     
     let rotationTime: Double = 0.5
@@ -60,15 +60,6 @@ struct LoadingView: View {
             
             Spacer()
             
-//            Button(
-//                action: {
-//                    print(scores)
-//                    pageStatus = .MAIN
-//                    scores = [0.0,0.0,0.0,0.0,0.0,0.0]
-//                }){Text("메인으로 돌아가기")
-//                        .underline()
-//                        .foregroundColor(Color(0x24E7B0))
-//                }
         }.onAppear {
             Timer.scheduledTimer(withTimeInterval: 2.2, repeats: false) { timer in
                 pageStatus = .RESULT
