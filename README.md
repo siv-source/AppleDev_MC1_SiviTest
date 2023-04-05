@@ -18,10 +18,12 @@
 .
 ### 👥 팀 소개
 ---
+
+
+<img src="https://github.com/SIVITEAM/AppleDev_MC1_SiviTest/blob/main/StoryView/Test003.swiftpm/Assets.xcassets/AppIcon.appiconset/AppIcon.png" width="150" height="150">
+
+
 > 시비없는 12팀
-
-
-((로고 이미지))
 
 
 
