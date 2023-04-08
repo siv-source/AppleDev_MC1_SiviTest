@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "SIVI",
+    name: "SIBI",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "SIVI",
+            name: "SIBI",
             targets: ["AppModule"],
             bundleIdentifier: "Personal.Test003",
             teamIdentifier: "3YTM76FTHB",
