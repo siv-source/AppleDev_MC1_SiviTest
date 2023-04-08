@@ -24,7 +24,7 @@ struct LoadingView: View {
     @State var spinnerEndS1: CGFloat = 0.0
     @State var rotationDegreeS1 = initialDegree
     
-    let animationTime: Double = 1.0
+    let animationTime: Double = 1
     
     var body: some View {
         VStack {
